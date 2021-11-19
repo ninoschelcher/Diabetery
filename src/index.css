@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+body {
+  background-color: #BFDBFE;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+}
+
+img:hover {
+  opacity: 0.6;
+  transition: 0.4s all;
+  cursor: pointer;
+}
+
+img:active {
+  opacity: 0.4;
+  transition: 0.4s all;
+  cursor: pointer;
+}
+
+input[type=radio]:checked+label>img {
+  border: 1px solid #292929;
+  border-radius: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track-piece {
+  background-color: #FFF;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #F0F0F0;
+  outline: 2px solid #FFF;
+  outline-offset: -2px;
+  border: .1px solid #B7B7B7;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #F0F0F0;
+}
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
