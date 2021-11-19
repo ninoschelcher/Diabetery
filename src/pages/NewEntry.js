@@ -104,7 +104,7 @@ const NewEntry = () => {
             </div>
             <div className="flex justify-between">
               <label className="text-grey font-bold text-sm" htmlFor="insuline">
-                Toegebrachte Insuline
+                Toegebrachte Insuline:
               </label>
               <input
                 type="number"
