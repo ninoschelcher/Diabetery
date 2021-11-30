@@ -16,7 +16,9 @@ const EntryOverview = () => {
         diaryEntries.push(diaryItem);
       }
     }
-    setEntries(diaryEntries);
+    const finalEntries = diaryEntries.sort((a, b) => (a.timeAdded < b.timeAdded) ? -1 : ((a.timeAdded > b.timeAdded) ? 1 : 0))
+    console.log(finalEntries);
+    setEntries(finalEntries);
   }, []);
 
   return (

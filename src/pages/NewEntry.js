@@ -40,13 +40,14 @@ const NewEntry = () => {
     const dd = String(today.getDate()).padStart(2, "0");
     const mm = String(today.getMonth() + 1).padStart(2, "0");
     const yyyy = today.getFullYear();
+    const finalDate = dd + ". " + mm + ". " + yyyy;
 
-    const time = addZero(today.getHours()) + ":" + addZero(today.getMinutes());
+    if (values.timeAdded === "") {
+      const time = addZero(today.getHours()) + ":" + addZero(today.getMinutes());
+      values.timeAdded = time;
+    }
 
-    today = dd + ". " + mm + ". " + yyyy;
-
-    values.dateAdded = today;
-    values.timeAdded = time;
+    values.dateAdded = finalDate;
     values.id = Math.floor(Math.random() * 1000);
 
     localStorage.setItem(entryId, JSON.stringify(values));
@@ -102,7 +103,7 @@ const NewEntry = () => {
                 required
               />
             </div>
-            <div className="flex justify-between">
+            <div className="flex justify-between mb-3">
               <label className="text-grey font-bold text-sm" htmlFor="insuline">
                 Toegebrachte Insuline:
               </label>
@@ -112,6 +113,20 @@ const NewEntry = () => {
                 name="insuline"
                 id="insuline"
                 className="w-1/4 border-b font-bold text-center border-greytrans text-lightgrey pl-3 mr-8 placeholder-opacity-50"
+                onChange={(e) => handleOnChange(e)}
+                required
+              />
+            </div>
+            <div className="flex justify-between mb-2">
+              <label className="text-grey font-bold text-sm flex-grow" htmlFor="bloodsugar">
+                Tijdstip van meten:
+              </label>
+              <input
+                type="text"
+                placeholder="00:00"
+                name="timeAdded"
+                id="timeAdded"
+                className="w-1/4 border-b text-center font-bold text-lightgrey border-greytrans pl-3 mr-8 placeholder-opacity-50"
                 onChange={(e) => handleOnChange(e)}
                 required
               />
